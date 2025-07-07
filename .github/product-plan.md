@@ -6,7 +6,7 @@ Lowkey is a minimalist mobile app designed to help men consistently show up in t
 
 ## 🌱 Core Purpose
 
-Lowkey delivers gentle, personalized nudges—like kind text ideas, surprise suggestions, or reflection prompts—tailored to a user’s partner’s personality and context. The app is built to be helpful, not intrusive.
+Lowkey delivers consistent, personalized nudges—like kind text ideas, surprise suggestions, or reflection prompts—tailored to a user’s partner’s personality and context. The app is built to be helpful, not intrusive.
 
 ---
 
@@ -39,7 +39,7 @@ Lowkey delivers gentle, personalized nudges—like kind text ideas, surprise sug
 ## 🧭 Product Principles
 
 - Minimal, warm, and calm
-- Gentle encouragement, never pressure
+- Consistant encouragement, never pressure
 - No gamification, no shame
 - Respect privacy and autonomy
 - Quietly builds a consistent habit of care

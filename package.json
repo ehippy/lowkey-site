@@ -1,7 +1,8 @@
 {
-  "name": "",
+  "name": "lowkey-site",
   "type": "module",
   "version": "0.0.1",
+  "description": "Landing page for Lowkey - Quiet reminders to show up in your relationship",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

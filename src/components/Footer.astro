@@ -1,0 +1,179 @@
+---
+// Footer component for Lowkey website
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-brand">
+				<h3 class="footer-logo">Lowkey</h3>
+				<p class="footer-tagline">
+					Quiet reminders to show up in your relationship
+				</p>
+			</div>
+			
+			<div class="footer-links">
+				<div class="footer-section">
+					<h4 class="footer-title">Product</h4>
+					<ul class="footer-list">
+						<li><a href="#features">Features</a></li>
+						<li><a href="#privacy">Privacy</a></li>
+						<li><a href="#about">About</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h4 class="footer-title">Support</h4>
+					<ul class="footer-list">
+						<li><a href="mailto:hello@getlowkey.app">Contact</a></li>
+						<li><a href="#help">Help</a></li>
+						<li><a href="#feedback">Feedback</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<p class="footer-copyright">
+				© 2025 Lowkey. Made with care for thoughtful relationships.
+			</p>
+			<div class="footer-social">
+				<a href="#" aria-label="Twitter" class="social-link">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+				<a href="#" aria-label="Instagram" class="social-link">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+						<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2"/>
+						<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background-color: var(--color-earth);
+		color: white;
+		padding: 3rem 0 1.5rem;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		margin-bottom: 2rem;
+		align-items: start;
+	}
+
+	.footer-brand {
+		max-width: 300px;
+	}
+
+	.footer-logo {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: white;
+	}
+
+	.footer-tagline {
+		color: var(--color-warm-light);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.footer-title {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.footer-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-list li {
+		margin-bottom: 0.5rem;
+	}
+
+	.footer-list a {
+		color: var(--color-warm-light);
+		text-decoration: none;
+		font-size: 0.9rem;
+		transition: color 0.2s ease;
+	}
+
+	.footer-list a:hover {
+		color: var(--color-warm);
+	}
+
+	.footer-bottom {
+		border-top: 1px solid #6d5a47;
+		padding-top: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.footer-copyright {
+		color: var(--color-warm-light);
+		font-size: 0.875rem;
+	}
+
+	.footer-social {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-link {
+		color: var(--color-warm-light);
+		transition: color 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.social-link:hover {
+		color: var(--color-warm);
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 2rem 0 1rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.footer-links {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.footer-bottom {
+			flex-direction: column;
+			gap: 1rem;
+			text-align: center;
+		}
+
+		.footer-social {
+			justify-content: center;
+		}
+	}
+</style>

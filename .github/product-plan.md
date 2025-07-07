@@ -28,7 +28,6 @@ Lowkey delivers gentle, personalized nudges—like kind text ideas, surprise sug
 ### 📔 Reflection
 - Gentle daily or weekly check-in prompt
 - Space to log connection wins and struggles
-- 
 
 ### 🧩 For partners and more
 - Simple setup: name, traits, love language, preferences

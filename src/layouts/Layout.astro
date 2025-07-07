@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
 
 export interface Props {
 	title?: string;
@@ -7,7 +8,7 @@ export interface Props {
 }
 
 const { 
-	title = "Lowkey - Quiet reminders to show up in your relationship",
+	title = "Lowkey - Fun, consistent reminders to show up in your relationship",
 	description = "Gentle, personalized nudges to help you be more thoughtful in your relationship. Small gestures, big impact."
 } = Astro.props;
 ---
@@ -30,6 +31,7 @@ const {
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>

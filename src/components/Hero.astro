@@ -44,6 +44,9 @@
 								<div class="notification-text">
 									Send Sarah a photo of something that reminded you of her today
 								</div>
+								<div class="notification-actions">
+									<button class="notification-btn primary" id="demo-action-btn">Text this now</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -125,7 +128,7 @@
 
 	.notification-demo {
 		width: 100%;
-		height: 150px;
+		height: 180px;
 		position: relative;
 		overflow: hidden;
 		margin-top: 1rem;
@@ -170,6 +173,29 @@
 		color: var(--color-text-light);
 		font-size: 0.8rem;
 		line-height: 1.4;
+		margin-bottom: 0.75rem;
+	}
+
+	.notification-actions {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.notification-btn {
+		padding: 0.375rem 0.75rem;
+		border-radius: 8px;
+		font-size: 0.75rem;
+		font-weight: 500;
+		border: none;
+		cursor: default;
+		transition: all 0.2s ease;
+		flex-shrink: 0;
+		pointer-events: none;
+	}
+
+	.notification-btn.primary {
+		background-color: var(--color-accent);
+		color: white;
 	}
 
 	@keyframes slideInFromTop {
@@ -230,52 +256,80 @@
 		{
 			icon: '💝',
 			title: 'Gentle reminder',
-			text: 'Send Sarah a photo of something that reminded you of her today'
+			text: 'Send Sarah a photo of something that reminded you of her today',
+			action: 'Text this now'
 		},
 		{
 			icon: '☕',
 			title: 'Morning thought',
-			text: 'Text Emma "good morning beautiful" before she starts her day'
+			text: 'Text Emma "good morning beautiful" before she starts her day',
+			action: 'Send message'
 		},
 		{
 			icon: '🌸',
 			title: 'Sweet gesture',
-			text: 'Leave a little note in Alex\'s laptop bag for tomorrow'
+			text: 'Leave a little note in Alex\'s laptop bag for tomorrow',
+			action: 'Add reminder'
 		},
 		{
 			icon: '📚',
 			title: 'Show interest',
-			text: 'Ask Jordan how her book club meeting went last night'
+			text: 'Ask Jordan how her book club meeting went last night',
+			action: 'Call now'
 		},
 		{
 			icon: '🎵',
 			title: 'Share a moment',
-			text: 'Send that song that made you think of Maya this morning'
+			text: 'Send that song that made you think of Maya this morning',
+			action: 'Search Spotify'
 		},
 		{
 			icon: '🌟',
 			title: 'Appreciation',
-			text: 'Tell Chris one specific thing you appreciated about them today'
+			text: 'Tell Chris one specific thing you appreciated about them today',
+			action: 'Journal now'
 		},
 		{
 			icon: '🍃',
 			title: 'Spontaneous care',
-			text: 'Bring Riley their favorite tea when you get home tonight'
+			text: 'Bring Riley their favorite tea when you get home tonight',
+			action: 'Set reminder'
 		},
 		{
 			icon: '💭',
 			title: 'Check in',
-			text: 'Ask Sam how they\'re feeling about that work presentation tomorrow'
+			text: 'Ask Sam how they\'re feeling about that work presentation tomorrow',
+			action: 'Text this'
 		},
 		{
 			icon: '🌙',
 			title: 'Evening connection',
-			text: 'Share one highlight from your day with Taylor before bed'
+			text: 'Share one highlight from your day with Taylor before bed',
+			action: 'Reflect now'
 		},
 		{
 			icon: '🤗',
 			title: 'Physical touch',
-			text: 'Give Morgan a 20-second hug when you see them next'
+			text: 'Give Morgan a 20-second hug when you see them next',
+			action: 'Set Reminder'
+		},
+		{
+			icon: '📸',
+			title: 'Capture the moment',
+			text: 'Take a selfie and send it to Jamie with "thinking of you"',
+			action: 'Take Selfie'
+		},
+		{
+			icon: '🎙️',
+			title: 'Voice message',
+			text: 'Record a quick voice memo telling Quinn why you love them',
+			action: 'Record voice memo'
+		},
+		{
+			icon: '💬',
+			title: 'Check in',
+			text: 'Ask Casey about that important meeting she had today',
+			action: 'Ask her'
 		}
 	];
 
@@ -289,6 +343,7 @@
 		const icon = notificationElement.querySelector('.notification-icon');
 		const title = notificationElement.querySelector('.notification-title');
 		const text = notificationElement.querySelector('.notification-text');
+		const actionBtn = notificationElement.querySelector('#demo-action-btn');
 		
 		// Slide out to the top
 		notificationElement.style.opacity = '0';
@@ -299,6 +354,7 @@
 			if (icon) icon.textContent = notification.icon;
 			if (title) title.textContent = notification.title;
 			if (text) text.textContent = notification.text;
+			if (actionBtn) actionBtn.textContent = notification.action;
 			
 			// Reset position to slide in from top
 			notificationElement.style.transform = 'translateY(-120px)';

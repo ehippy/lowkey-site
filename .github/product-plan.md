@@ -22,12 +22,13 @@ Lowkey delivers gentle, personalized nudges—like kind text ideas, surprise sug
 
 ### 🔔 Nudges
 - Scheduled suggestions via local notifications
-- Text prompts, surprise ideas, reflections
+- Text clever prompts, surprise ideas, reflections
 - Matched to partner’s traits, preferences, and context
 
 ### 📔 Reflection
 - Gentle daily or weekly check-in prompt
 - Space to log connection wins and struggles
+- 
 
 ### 🧩 For partners and more
 - Simple setup: name, traits, love language, preferences

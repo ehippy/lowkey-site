@@ -2,7 +2,7 @@
   "name": "lowkey-site",
   "type": "module",
   "version": "0.0.1",
-  "description": "Landing page for Lowkey - Fun, consistent reminders to show up in your relationship",
+  "description": "Landing page for lowkey - Fun, consistent reminders to show up in your relationship",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

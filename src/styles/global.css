@@ -4,6 +4,9 @@
   --color-primary-dark: #6d5a47;
   --color-accent: #a0845c;
   --color-accent-light: #b8956b;
+  --color-accent-red: #eb5347;
+  --color-accent-red-light: #ef7066;
+  --color-accent-red-dark: #d73d31;
   --color-background: #faf8f5;
   --color-surface: #fffef9;
   --color-text: #3e2723;
@@ -20,7 +23,9 @@
   --breakpoint-mobile: 768px;
   --gradient-hero: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
   --gradient-cta: linear-gradient(135deg, var(--color-accent) 0%, var(--color-warm) 100%);
+  --gradient-cta-accent: linear-gradient(135deg, var(--color-accent-red) 0%, var(--color-accent-red-light) 100%);
   --gradient-icon: linear-gradient(135deg, var(--color-accent), var(--color-warm));
+  --gradient-icon-accent: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-red-light));
 }
 
 /* Base Reset & Typography */
@@ -102,6 +107,18 @@ a:hover {
 
 .btn-secondary:hover {
   background-color: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-accent {
+  background-color: var(--color-accent-red);
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-red-light);
+  color: white;
   transform: translateY(-1px);
   box-shadow: var(--shadow-medium);
 }

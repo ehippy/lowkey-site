@@ -1,12 +1,12 @@
-# 🕊️ Lowkey – Product Plan
+# 🕊️ lowkey – Product Plan
 
-Lowkey is a minimalist mobile app designed to help men consistently show up in their relationships through small, thoughtful gestures. It’s built for quiet, intentional connection—not noise or notifications.
+lowkey is a minimalist mobile app designed to help men consistently show up in their relationships through small, thoughtful gestures. It’s built for quiet, intentional connection—not noise or notifications.
 
 ---
 
 ## 🌱 Core Purpose
 
-Lowkey delivers consistent, personalized nudges—like kind text ideas, surprise suggestions, or reflection prompts—tailored to a user’s partner’s personality and context. The app is built to be helpful, not intrusive.
+lowkey delivers consistent, personalized nudges—like kind text ideas, surprise suggestions, or reflection prompts—tailored to a user’s partner’s personality and context. The app is built to be helpful, not intrusive.
 
 ---
 

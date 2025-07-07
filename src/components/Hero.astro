@@ -140,14 +140,18 @@
 		height: 100%;
 		background: linear-gradient(180deg, var(--color-earth) 0%, #4a3d2a 100%);
 		border-radius: 20px;
-		padding: 2rem 1.5rem;
+		padding: 1.5rem 1rem;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-direction: column;
+		align-items: stretch;
 	}
 
 	.notification-demo {
 		width: 100%;
+		height: 120px;
+		position: relative;
+		overflow: hidden;
+		margin-top: 1rem;
 	}
 
 	.notification {
@@ -159,10 +163,13 @@
 		align-items: flex-start;
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 		backdrop-filter: blur(10px);
-		animation: fadeInSlide 6s ease-in-out infinite;
 		opacity: 1;
 		transform: translateY(0);
-		transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 	}
 
 	.notification-icon {
@@ -188,14 +195,14 @@
 		line-height: 1.4;
 	}
 
-	@keyframes fadeInSlide {
-		0%, 15%, 100% {
+	@keyframes slideInFromTop {
+		from {
+			opacity: 0;
+			transform: translateY(-120px);
+		}
+		to {
 			opacity: 1;
 			transform: translateY(0);
-		}
-		2%, 13% {
-			opacity: 0.3;
-			transform: translateY(-5px);
 		}
 	}
 
@@ -241,8 +248,97 @@
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		// Email form functionality
+	// Notification rotation functionality
+	const notifications = [
+		{
+			icon: '💝',
+			title: 'Gentle reminder',
+			text: 'Send Sarah a photo of something that reminded you of her today'
+		},
+		{
+			icon: '☕',
+			title: 'Morning thought',
+			text: 'Text Emma "good morning beautiful" before she starts her day'
+		},
+		{
+			icon: '🌸',
+			title: 'Sweet gesture',
+			text: 'Leave a little note in Alex\'s laptop bag for tomorrow'
+		},
+		{
+			icon: '📚',
+			title: 'Show interest',
+			text: 'Ask Jordan how her book club meeting went last night'
+		},
+		{
+			icon: '🎵',
+			title: 'Share a moment',
+			text: 'Send that song that made you think of Maya this morning'
+		},
+		{
+			icon: '🌟',
+			title: 'Appreciation',
+			text: 'Tell Chris one specific thing you appreciated about them today'
+		},
+		{
+			icon: '🍃',
+			title: 'Spontaneous care',
+			text: 'Bring Riley their favorite tea when you get home tonight'
+		},
+		{
+			icon: '💭',
+			title: 'Check in',
+			text: 'Ask Sam how they\'re feeling about that work presentation tomorrow'
+		},
+		{
+			icon: '🌙',
+			title: 'Evening connection',
+			text: 'Share one highlight from your day with Taylor before bed'
+		},
+		{
+			icon: '🤗',
+			title: 'Physical touch',
+			text: 'Give Morgan a 20-second hug when you see them next'
+		}
+	];
+
+	let currentIndex = 0;
+
+	function updateNotification() {
+		const notificationElement = document.getElementById('demo-notification');
+		if (!notificationElement) return;
+
+		const notification = notifications[currentIndex];
+		const icon = notificationElement.querySelector('.notification-icon');
+		const title = notificationElement.querySelector('.notification-title');
+		const text = notificationElement.querySelector('.notification-text');
+		
+		// Slide out to the top
+		notificationElement.style.opacity = '0';
+		notificationElement.style.transform = 'translateY(-120px)';
+		
+		setTimeout(() => {
+			// Update content
+			if (icon) icon.textContent = notification.icon;
+			if (title) title.textContent = notification.title;
+			if (text) text.textContent = notification.text;
+			
+			// Reset position to slide in from top
+			notificationElement.style.transform = 'translateY(-120px)';
+			notificationElement.style.opacity = '1';
+			
+			// Trigger slide in animation
+			setTimeout(() => {
+				notificationElement.style.transform = 'translateY(0)';
+			}, 50);
+			
+			// Move to next notification
+			currentIndex = (currentIndex + 1) % notifications.length;
+		}, 500);
+	}
+
+	// Email form functionality
+	function setupEmailForm() {
 		const form = document.getElementById('email-form');
 		const emailInput = document.getElementById('email');
 		
@@ -253,11 +349,8 @@
 				const email = emailInput.value.trim();
 				if (!email) return;
 				
-				// Here you would integrate with your email service
-				// For now, we'll just show a success message
 				console.log('Email submitted:', email);
 				
-				// Simple success feedback
 				const button = form.querySelector('button');
 				const originalText = button.textContent;
 				button.textContent = 'Thank you!';
@@ -270,94 +363,22 @@
 				}, 2000);
 			});
 		}
+	}
 
-		// Notification rotation functionality
-		const notifications = [
-			{
-				icon: '💝',
-				title: 'Gentle reminder',
-				text: 'Send Sarah a photo of something that reminded you of her today'
-			},
-			{
-				icon: '☕',
-				title: 'Morning thought',
-				text: 'Text Emma "good morning beautiful" before she starts her day'
-			},
-			{
-				icon: '🌸',
-				title: 'Sweet gesture',
-				text: 'Leave a little note in Alex\'s laptop bag for tomorrow'
-			},
-			{
-				icon: '📚',
-				title: 'Show interest',
-				text: 'Ask Jordan how her book club meeting went last night'
-			},
-			{
-				icon: '🎵',
-				title: 'Share a moment',
-				text: 'Send that song that made you think of Maya this morning'
-			},
-			{
-				icon: '🌟',
-				title: 'Appreciation',
-				text: 'Tell Chris one specific thing you appreciated about them today'
-			},
-			{
-				icon: '🍃',
-				title: 'Spontaneous care',
-				text: 'Bring Riley their favorite tea when you get home tonight'
-			},
-			{
-				icon: '💭',
-				title: 'Check in',
-				text: 'Ask Sam how they\'re feeling about that work presentation tomorrow'
-			},
-			{
-				icon: '🌙',
-				title: 'Evening connection',
-				text: 'Share one highlight from your day with Taylor before bed'
-			},
-			{
-				icon: '🤗',
-				title: 'Physical touch',
-				text: 'Give Morgan a 20-second hug when you see them next'
-			}
-		];
-
-		let currentIndex = 0;
-		const notificationElement = document.getElementById('demo-notification');
-		
-		if (notificationElement) {
-			function updateNotification() {
-				const notification = notifications[currentIndex];
-				const icon = notificationElement.querySelector('.notification-icon');
-				const title = notificationElement.querySelector('.notification-title');
-				const text = notificationElement.querySelector('.notification-text');
-				
-				// Fade out
-				notificationElement.style.opacity = '0';
-				notificationElement.style.transform = 'translateY(-5px)';
-				
-				setTimeout(() => {
-					// Update content
-					if (icon) icon.textContent = notification.icon;
-					if (title) title.textContent = notification.title;
-					if (text) text.textContent = notification.text;
-					
-					// Fade in
-					notificationElement.style.opacity = '1';
-					notificationElement.style.transform = 'translateY(0)';
-					
-					// Move to next notification
-					currentIndex = (currentIndex + 1) % notifications.length;
-				}, 250);
-			}
-
-			// Start the rotation after initial load
+	// Initialize everything when DOM is loaded
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setupEmailForm();
+			// Start notification rotation after 2 seconds
 			setTimeout(() => {
-				setInterval(updateNotification, 4000); // Change every 4 seconds
-			}, 2000); // Wait 2 seconds before starting rotation
-		}
-	});
+				setInterval(updateNotification, 4000);
+			}, 2000);
+		});
+	} else {
+		// DOM is already loaded
+		setupEmailForm();
+		setTimeout(() => {
+			setInterval(updateNotification, 4000);
+		}, 2000);
+	}
 </script>

@@ -26,18 +26,13 @@ Lowkey delivers gentle, personalized nudges—like kind text ideas, surprise sug
 - Matched to partner’s traits, preferences, and context
 
 ### 📔 Reflection
-- Gentle daily or weekly journaling prompt
-- Space to log connection “wins”
-- No social features or streaks—just personal growth
+- Gentle daily or weekly check-in prompt
+- Space to log connection wins and struggles
 
-### 🧠 Offline-First
-- All data lives locally
-- Functions without a network connection
-- Optional cloud sync via LLM integration for smarter suggestions
-
-### 🧩 Partner Profile
+### 🧩 For partners and more
 - Simple setup: name, traits, love language, preferences
 - Drives personalization
+- Go further, connecting with parents, kids, and friends too
 
 ---
 

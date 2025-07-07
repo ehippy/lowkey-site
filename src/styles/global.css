@@ -1,0 +1,233 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  --color-primary: #8b7355;
+  --color-primary-dark: #6d5a47;
+  --color-accent: #a0845c;
+  --color-accent-light: #b8956b;
+  --color-background: #faf8f5;
+  --color-surface: #fffef9;
+  --color-text: #3e2723;
+  --color-text-light: #6d4c41;
+  --color-text-lighter: #8d6e63;
+  --color-warm: #d4a574;
+  --color-warm-light: #e6c7a3;
+  --color-earth: #5d4e37;
+  --color-border: #f0e9db;
+  --color-border-focus: #d7c4a8;
+  --border-radius: 12px;
+  --shadow-soft: 0 1px 3px 0 rgb(62 39 35 / 0.1), 0 1px 2px -1px rgb(62 39 35 / 0.1);
+  --shadow-medium: 0 4px 6px -1px rgb(62 39 35 / 0.1), 0 2px 4px -2px rgb(62 39 35 / 0.1);
+  --breakpoint-mobile: 768px;
+  --gradient-hero: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
+  --gradient-cta: linear-gradient(135deg, var(--color-accent) 0%, var(--color-warm) 100%);
+  --gradient-icon: linear-gradient(135deg, var(--color-accent), var(--color-warm));
+}
+
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-light);
+}
+
+/* Layout Components */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Button Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-light);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Form Components */
+.email-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border-focus);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--color-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(160 132 92 / 0.1);
+}
+
+.email-input::placeholder {
+  color: var(--color-text-light);
+}
+
+.email-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  max-width: 400px;
+}
+
+.form-note {
+  font-size: 0.875rem;
+  color: var(--color-text-lighter);
+  max-width: 400px;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-muted {
+  color: var(--color-text-lighter);
+}
+
+.text-large {
+  font-size: 1.2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+/* Hero Section Patterns */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+/* Error Page Styles */
+.error-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.error-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.error-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  font-weight: 300;
+}
+
+.error-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--color-text-lighter);
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: var(--breakpoint-mobile)) {
+  .email-form {
+    flex-direction: column;
+  }
+  
+  .error-emoji {
+    font-size: 3rem;
+  }
+  
+  .error-title {
+    font-size: 2rem;
+  }
+  
+  .error-description {
+    font-size: 1.1rem;
+  }
+}

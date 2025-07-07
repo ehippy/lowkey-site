@@ -46,9 +46,15 @@ const {
 		--color-warm: #d4a574;
 		--color-warm-light: #e6c7a3;
 		--color-earth: #5d4e37;
+		--color-border: #f0e9db;
+		--color-border-focus: #d7c4a8;
 		--border-radius: 12px;
 		--shadow-soft: 0 1px 3px 0 rgb(62 39 35 / 0.1), 0 1px 2px -1px rgb(62 39 35 / 0.1);
 		--shadow-medium: 0 4px 6px -1px rgb(62 39 35 / 0.1), 0 2px 4px -2px rgb(62 39 35 / 0.1);
+		--breakpoint-mobile: 768px;
+		--gradient-hero: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
+		--gradient-cta: linear-gradient(135deg, var(--color-accent) 0%, var(--color-warm) 100%);
+		--gradient-icon: linear-gradient(135deg, var(--color-accent), var(--color-warm));
 	}
 
 	* {
@@ -137,5 +143,48 @@ const {
 
 	.text-balance {
 		text-wrap: balance;
+	}
+
+	/* Email Input Component */
+	.email-input {
+		flex: 1;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--color-border-focus);
+		border-radius: var(--border-radius);
+		font-size: 1rem;
+		background-color: var(--color-surface);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.email-input:focus {
+		outline: none;
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px rgb(160 132 92 / 0.1);
+	}
+
+	.email-input::placeholder {
+		color: var(--color-text-light);
+	}
+
+	/* Email Form Layout */
+	.email-form {
+		display: flex;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+		max-width: 400px;
+	}
+
+	/* Form Note */
+	.form-note {
+		font-size: 0.875rem;
+		color: var(--color-text-lighter);
+		max-width: 400px;
+	}
+
+	/* Responsive utilities */
+	@media (max-width: var(--breakpoint-mobile)) {
+		.email-form {
+			flex-direction: column;
+		}
 	}
 </style>

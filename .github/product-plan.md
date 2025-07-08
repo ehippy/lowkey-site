@@ -45,3 +45,10 @@ lowkey delivers consistent, personalized nudges—like kind text ideas, surprise
 - Quietly builds a consistent habit of care
 
 ---
+
+## Competing Apps
+
+- Evergreen: Relationship Growth - https://play.google.com/store/apps/details?id=com.evergreenapp.evergreen&hl=en_US
+- Love Nudge - https://play.google.com/store/apps/details?id=com.grootersproductions.challenge&hl=en_US
+
+We're differentiated by being just for one member of a pair. There's no chat room for the couple.

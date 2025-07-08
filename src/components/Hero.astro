@@ -37,7 +37,7 @@
 			<div class="phone-mockup">
 				<div class="phone-frame">
 					<div class="phone-screen">					<div class="notification-demo">
-						<div class="notification" id="demo-notification">
+						<div class="notification" id="demo-notification" style="opacity: 0; transform: translateY(-120px);">
 							<div class="notification-icon">💝</div>
 							<div class="notification-content">
 								<div class="notification-title">Gentle reminder</div>
@@ -367,7 +367,8 @@
 		}
 	];
 
-	let currentIndex = 0;
+	let currentIndex = Math.floor(Math.random() * notifications.length);
+	let isFirstLoad = true;
 
 	function updateNotification() {
 		const notificationElement = document.getElementById('demo-notification');
@@ -379,29 +380,45 @@
 		const text = notificationElement.querySelector('.notification-text');
 		const actionBtn = notificationElement.querySelector('#demo-action-btn');
 		
-		// Slide out to the top
-		notificationElement.style.opacity = '0';
-		notificationElement.style.transform = 'translateY(-120px)';
-		
-		setTimeout(() => {
-			// Update content
+		if (isFirstLoad) {
+			// First load: just show the random notification
 			if (icon) icon.textContent = notification.icon;
 			if (title) title.textContent = notification.title;
 			if (text) text.textContent = notification.text;
 			if (actionBtn) actionBtn.textContent = notification.action;
 			
-			// Reset position to slide in from top
-			notificationElement.style.transform = 'translateY(-120px)';
+			// Slide in from top
 			notificationElement.style.opacity = '1';
+			notificationElement.style.transform = 'translateY(0)';
+			isFirstLoad = false;
+		} else {
+			// Subsequent updates: slide out, change content, slide in
+			notificationElement.style.opacity = '0';
+			notificationElement.style.transform = 'translateY(-120px)';
 			
-			// Trigger slide in animation
 			setTimeout(() => {
-				notificationElement.style.transform = 'translateY(0)';
-			}, 50);
-			
-			// Move to next notification
-			currentIndex = (currentIndex + 1) % notifications.length;
-		}, 500);
+				// Update content
+				if (icon) icon.textContent = notification.icon;
+				if (title) title.textContent = notification.title;
+				if (text) text.textContent = notification.text;
+				if (actionBtn) actionBtn.textContent = notification.action;
+				
+				// Reset position to slide in from top
+				notificationElement.style.transform = 'translateY(-120px)';
+				notificationElement.style.opacity = '1';
+				
+				// Trigger slide in animation
+				setTimeout(() => {
+					notificationElement.style.transform = 'translateY(0)';
+				}, 50);
+			}, 500);
+		}
+		
+		// Move to next notification (avoid repeating the same one)
+		const previousIndex = currentIndex;
+		do {
+			currentIndex = Math.floor(Math.random() * notifications.length);
+		} while (currentIndex === previousIndex && notifications.length > 1);
 	}
 
 	// Email submission to API
@@ -471,16 +488,18 @@
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', function() {
 			setupEmailForm();
-			// Start notification rotation after 2 seconds
+			// Show first notification after 500ms, then start rotation
 			setTimeout(() => {
-				setInterval(updateNotification, 4000);
-			}, 2000);
+				updateNotification();
+				setInterval(updateNotification, 5000);
+			}, 500);
 		});
 	} else {
 		// DOM is already loaded
 		setupEmailForm();
 		setTimeout(() => {
-			setInterval(updateNotification, 4000);
-		}, 2000);
+			updateNotification();
+			setInterval(updateNotification, 5000);
+		}, 500);
 	}
 </script>

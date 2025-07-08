@@ -231,6 +231,30 @@
 			order: 1;
 			width: 100%;
 			margin-bottom: 2rem;
+			height: 280px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.hero-visual::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 60px;
+			background: linear-gradient(to top, var(--color-background), rgba(250, 248, 245, 0.8), transparent);
+			pointer-events: none;
+			z-index: 10;
+		}
+
+		.phone-mockup {
+			transform: translateY(120px);
+		}
+
+		.phone-frame {
+			width: 280px;
+			height: 480px;
 		}
 
 		.hero-title {
@@ -242,17 +266,20 @@
 			margin: 0 auto 2rem;
 		}
 
-		.phone-frame {
-			width: 240px;
-			height: 480px;
-		}
-
 		.notification {
 			padding: 0.75rem;
 		}
 
 		.notification-text {
 			font-size: 0.75rem;
+		}
+
+		.phone-mockup,
+		.phone-frame,
+		.phone-screen,
+		.notification-demo,
+		.notification {
+			text-align: left;
 		}
 	}
 </style>

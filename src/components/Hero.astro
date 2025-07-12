@@ -1,5 +1,6 @@
 ---
 // Hero component for lowkey landing page
+import SpotsRemaining from './SpotsRemaining.astro';
 ---
 
 <section class="hero">
@@ -24,10 +25,12 @@
 							class="email-input"
 						>
 						<button type="submit" class="btn btn-primary">
-							Get notified
+							Get early access
 						</button>
 					</form>
+					
 					<p class="form-note">
+						<SpotsRemaining className="hero-style" />
 						Be the first to know when lowkey launches. No spam, just updates.
 					</p>
 				</div>
@@ -469,6 +472,13 @@
 					button.textContent = 'Thank you!';
 					button.style.backgroundColor = '#b8956b';
 					emailInput.value = '';
+					
+					// Update spots counter after successful submission
+					if (window.updateAllSpotsDisplays) {
+						setTimeout(() => {
+							window.updateAllSpotsDisplays();
+						}, 500);
+					}
 				} else {
 					button.textContent = 'Try again';
 					button.style.backgroundColor = '#dc3545';

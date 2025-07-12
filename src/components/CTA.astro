@@ -1,5 +1,6 @@
 ---
 // CTA component for additional conversion opportunities
+import SpotsRemaining from './SpotsRemaining.astro';
 ---
 
 <section class="cta">
@@ -25,8 +26,9 @@
 						Get early access
 					</button>
 				</form>
+				
 				<p class="form-note text-center">
-					No spam. Unsubscribe anytime. We respect your privacy as much as you respect your relationship.
+					<SpotsRemaining className="cta-style" /> No spam. Unsubscribe anytime. We respect your privacy as much as you respect your relationship.
 				</p>
 			</div>
 		</div>
@@ -155,6 +157,13 @@
 					button.textContent = 'Thank you!';
 					button.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
 					emailInput.value = '';
+					
+					// Update spots counter after successful submission
+					if (window.updateAllSpotsDisplays) {
+						setTimeout(() => {
+							window.updateAllSpotsDisplays();
+						}, 500);
+					}
 				} else {
 					button.textContent = 'Try again';
 					button.style.backgroundColor = 'rgba(220, 53, 69, 0.8)';
